@@ -1,0 +1,17 @@
+main {
+    background-image: url(../img/work.jpg);
+    background-size: cover;
+    background-position: center;
+    color: white;
+    height: 100vh;
+    padding: 5em;
+}
+
+contactInfo {
+    text-align: right;
+    float: right;
+}
+
+skills {
+    text-align: center;
+}
