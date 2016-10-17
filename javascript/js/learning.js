@@ -453,11 +453,13 @@ function generateRandomNumbers(howMany, minimum, maximum) {
 
 //>>> your code goes here!
 
-/*var randomArray = generateRandomNumbers(5, 1, 100) {
-    randomNumber.forEach(randomArray);
-    var randomNumber.map();
+var randomArray = generateRandomNumbers(5, minimum, maximum) {
+    randomNumber = randomNumber.forEach(randomArray);
+    randomNumber.map();
+
+    randomNumber.minimum();
 }
-*/
+
 
 //now use the .sort() method on a generated array of random
 //numbers to sort them. Note that by default, sort will 
