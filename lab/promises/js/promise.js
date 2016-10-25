@@ -7,14 +7,48 @@
   - Use the fetch() api to help with your calls. https://davidwalsh.name/fetch
   - Use https://freegeoip.net/json/ to get a user's location. This uses your IP address to get an estimate of your location
   - With the result of that request, make another request to determine the current weather
-    - Use http://openweathermap.org/current
-      - You will need to sign up for an API key. Follow the instructions on how to do that here: http://openweathermap.org/appid
-    - After you have your API key, pick an API call to use. When you are using it, make sure you remember to append your API key 
-      on to the end of the url.
+  - Use http://openweathermap.org/current
+  - You will need to sign up for an API key. Follow the instructions on how to do that here: http://openweathermap.org/appid
+  - After you have your API key, pick an API call to use. When you are using it, make sure you remember to append your API key on to the end of the url.
 
   */
  
  //part 1 code
+
+var weatherAPI = '009c7ebcb45e65b3b841cd732a7c49a2';
+var city = "";
+
+fetch('https://freegeoip.net/json/')
+.then(function(response) {
+  console.log(response);
+  return response.json();
+}).then(function(result) {
+  console.log(result);
+  city = result.city;
+  fetchCity();
+}).catch(function(err) {
+  console.log("error")
+});
+
+function fetchCity() {
+  fetch('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&APPID=' + weatherAPI)
+  .then (function(response) {
+    return response.json();
+  })
+  .then(function(result) {
+    console.log(result);
+  })
+  .catch(function(err) {
+    console.log(err);
+  })
+}
+
+
+
+
+//api.openweathermap.org/data/2.5/forecast/city?id=524901&APPID=009c7ebcb45e65b3b841cd732a7c49a2
+
+
 
  /*
   Part 2: Show the difference between parallel and serial promises
